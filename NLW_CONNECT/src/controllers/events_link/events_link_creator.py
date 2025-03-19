@@ -20,9 +20,9 @@ class EventsLinkCreator:
         response = self.__events_link_repo.select_event_link(event_id, subscriber_id)
         if response: raise Exception("Link Already Exists!")
 
-    def __check_event_link(self, event_id: int, subscriber_id: int) -> str:
-        new_link = self.__events_link_repo.insert(event_id, subscriber_id)
-        return new_link
+    def __create_event_link(self, event_id: int, subscriber_id: int) -> str:
+         new_link = self.__events_link_repo.insert(event_id, subscriber_id)
+         return new_link
     
     def __format_response(self, new_link: str, event_id: int, subscriber_id: int) -> HttpResponse:
         return HttpResponse(
